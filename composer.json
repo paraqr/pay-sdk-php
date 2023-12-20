@@ -1,0 +1,34 @@
+{
+  "name": "paraqr/payment",
+  "description": "The payment provider from paraqr",
+  "keywords": [
+    "paraqr",
+    "payment"
+  ],
+  "type": "library",
+  "version": "1.0.0",
+  "homepage": "https://www.paraqr.com",
+  "authors": [
+    {
+      "name": "ParaQR",
+      "email": "admin@paraqr.com",
+      "homepage": "https://www.paraqr.com",
+      "role": "Author"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-simplexml": "*",
+    "ext-openssl": "*",
+    "stephenhill/base58": "^1.1",
+    "starkbank/ecdsa": "^2.1",
+    "ext-gmp": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "paraqr\\payment\\": "src/"
+    }
+  }
+}
