@@ -13,15 +13,7 @@
 composer require paraqr/payment
 ```
 
-or
-
-add:
-
-```
-"paraqr/payment":"1.0.0"
-```
-
-in composer.json
+or add: `paraqr/payment":"^1.0"` in composer.json
 
 ### Demo
 

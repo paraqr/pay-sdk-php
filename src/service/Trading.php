@@ -90,8 +90,10 @@ class Trading extends Service {
         if (empty($outTradeNo) && empty($tradeNo)) {
             throw new Error('`out_trade_no` or `trade_no` at least one of these two parameters is required');
         }
+
+        $data = ['out_trade_no' => $outTradeNo, 'trade_no' => $tradeNo];
         return $this->request('trade.query.order', [
-            'biz_content' => "{\"out_trade_no\":\"$outTradeNo\",\"trade_no\":\"$tradeNo\"}"
+            'biz_content' => json_encode(array_filter($data))
         ]);
     }
 
@@ -106,8 +108,9 @@ class Trading extends Service {
         if (empty($outTradeNo) && empty($tradeNo)) {
             throw new Error('`out_trade_no` or `trade_no` at least one of these two parameters is required');
         }
+        $data = ['description' => $description, 'out_trade_no' => $outTradeNo, 'trade_no' => $tradeNo];
         return $this->request('trade.close', [
-            'biz_content' => "{\"out_trade_no\":\"$outTradeNo\",\"description\":\"$description\"}"
+            'biz_content' => json_encode(array_filter($data))
         ]);
     }
 
@@ -122,8 +125,9 @@ class Trading extends Service {
         if (empty($outTradeNo) && empty($tradeNo)) {
             throw new Error('`out_trade_no` or `trade_no` at least one of these two parameters is required');
         }
+        $data = ['description' => $description, 'out_trade_no' => $outTradeNo, 'trade_no' => $tradeNo];
         return $this->request('trade.cancel', [
-            'biz_content' => "{\"out_trade_no\":\"$outTradeNo\",\"description\":\"$description\"}"
+            'biz_content' => json_encode(array_filter($data))
         ]);
     }
 
@@ -160,8 +164,9 @@ class Trading extends Service {
             throw new Error('`out_trade_no` or `trade_no` at least one of these two parameters is required');
         }
 
+        $data = ['out_refund_no' => $outRefundNo, 'out_trade_no' => $outTradeNo, 'trade_no' => $tradeNo];
         return $this->request('trade.refund.detail', [
-            'biz_content' => "{\"out_trade_no\":\"$outTradeNo\",\"out_refund_no\":\"$outRefundNo\"}"
+            'biz_content' => json_encode(array_filter($data)),
         ]);
     }
 
@@ -175,8 +180,10 @@ class Trading extends Service {
         if (empty($outTradeNo) && empty($tradeNo)) {
             throw new Error('`out_trade_no` or `trade_no` at least one of these two parameters is required');
         }
+
+        $data = ['out_trade_no' => $outTradeNo, 'trade_no' => $tradeNo];
         return $this->request('trade.refund.query', [
-            'biz_content' => "{\"out_trade_no\":\"$outTradeNo\",\"trade_no\":\"$tradeNo\"}"
+            'biz_content' => json_encode(array_filter($data)),
         ]);
     }
 }
